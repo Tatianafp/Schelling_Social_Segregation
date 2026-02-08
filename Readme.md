@@ -1,51 +1,80 @@
 # Schelling Social Segregation
 
-## Apresentação do novo modelo
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3.8+-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python"/>
+  <img src="https://img.shields.io/badge/MESA-Agent_Based_Modeling-orange?style=for-the-badge" alt="MESA"/>
+  <img src="https://img.shields.io/badge/Simulation-Social_Dynamics-blue?style=for-the-badge" alt="Simulation"/>
+</p>
 
-O código inicial da simulação foi obtido a partir do repositório de exemplos da ferramenta Mesa. (https://github.com/projectmesa/mesa/tree/main/examples/schelling) 
+<p align="center">
+  <img src="https://img.shields.io/badge/Course-Experimental_Computing-purple?style=flat-square" alt="Course"/>
+  <img src="https://img.shields.io/badge/Institution-UnB-blue?style=flat-square" alt="UnB"/>
+  <img src="https://img.shields.io/badge/Type-Academic_Project-green?style=flat-square" alt="Type"/>
+</p>
 
-A simulação visa reconstruir o fenômeno da segregação abordado por Schelling. Para tal, o modelo consiste em agentes que são distribuídos em um \textit{grid}, onde cada célula pode conter no máximo um agente. Inicialmente os agentes podiam pertencer a duas classes, os vermelhos e os azuis. A felicidade de um agente é obtida se um certo número de seus oito possíveis vizinhos são da mesma cor, e infelizes do contrário. Em cada etapa, agentes infelizes escolherão uma célula vazia aleatória para se moverem até que estejam felizes. O modelo continua em execução até que não haja agentes insatisfeitos. A fim de se experimentar a relação entre um número maior de classes e a quantidade de agentes felizes, foi preciso realizar algumas mudanças no código do simulador, a quais serão descritas em mais detalhes na seção "Mudanças realizadas".
+## Overview
 
-## Descrição da hipótese
+The initial simulation code was obtained from the Mesa framework examples repository: https://github.com/projectmesa/mesa/tree/main/examples/schelling
 
-A hipótese causal é de que quanto maior o número de classes nas quais os indivíduos se dividem, maior é a dificuldade de se alcançar a felicidade de todos os agentes. Para que mais agentes fiquem contentes com sua vizinhança, é necessário ser mais flexivel em relação a taxa de homofilia. 
+The simulation aims to reconstruct the segregation phenomenon addressed by Schelling. The model consists of agents distributed on a grid, where each cell can contain at most one agent. Initially, agents could belong to two classes: red and blue. An agent's happiness is achieved if a certain number of their eight possible neighbors are the same color, and unhappy otherwise. At each step, unhappy agents choose a random empty cell to move to until they are happy. The model continues running until there are no dissatisfied agents. In order to experiment with the relationship between a larger number of classes and the number of happy agents, it was necessary to make some changes to the simulator code, which will be described in more detail in the "Changes Made" section.
 
-## Mudanças realizadas
+## Hypothesis Description
 
-- Adicionou-se a variável independente \textit{Number of agent types} para expandir e determinar o número de classes presentes no modelo;
-- Adaptou-se a forma como era feita a distribuição de classes, no momento, a distribuição é feita de forma aleatória, até alcançar a densidade especificada pela variável \textit{density};
-- Foram adicionadas mais cores para se representar as diversas classes; 
-- A variável dependente \textit{happy} foi transformada na variável dependente \textit{Percentage of happy agents} a fim de que ela represente uma condição mais coletiva do modelo.
+The causal hypothesis is that the greater the number of classes into which individuals are divided, the greater the difficulty in achieving happiness for all agents. For more agents to be content with their neighborhood, it is necessary to be more flexible regarding the homophily rate.
 
-## Como usar o simulador
+## Changes Made
 
-### Dependências
- 
-Para a execução correta do modelo deve-se instalar o pacote **mesa** e os outros listados em **requirements.txt**. Isso pode ser feito ao se executar o seguinte comando:
+- Added the independent variable "Number of agent types" to expand and determine the number of classes present in the model
+- Adapted the way class distribution was done; currently, distribution is done randomly until the density specified by the "density" variable is reached
+- Added more colors to represent the various classes
+- The dependent variable "happy" was transformed into the dependent variable "Percentage of happy agents" so that it represents a more collective condition of the model
 
+## How to Use the Simulator
+
+### Dependencies
+
+For correct execution of the model, you must install the **mesa** package and others listed in **requirements.txt**. This can be done by executing the following command:
+
+```bash
+pip install -r requirements.txt
 ```
-  $ pip install -r requirements.txt
 
+### Execution
+
+To use the simulator and run the new model, simply execute the following command:
+
+```bash
+mesa runserver
 ```
 
-### Execução
+## Model Variables Description
 
-Para utilizar o simulador e rodar o novo modelo, basta executar o seguinte comando: 
+### Independent or Control Variables
 
-```
-    $ mesa runserver
-```
+- **Agent density**: Agent density, determines the number of agents and empty spaces
+- **Homophily**: The tendency of individuals to associate and establish bonds with similar others
+- **Number of agent types**: Number of individual classes in the model; class is the group with which the individual most identifies
 
-## Descrição das variáveis do modelo
+### Dependent Variables
 
-### Variáveis Independentes ou de Controle
+- **Percentage of happy agents**: Percentage of happy agents at that step, calculated by the number of agents who are happy with their neighborhood divided by the total number of agents
+- **Number of steps until 100% happy agents**: Number of steps executed until all agents were content with their respective neighborhoods
 
-- **Agent density:** densidade de agentes, é o que determinada a quantidade de agentes e espaços vazios;
-- **Homophily:** em português, homofilia social, é a tendência dos indivíduos de se associar e de estabelecer vínculos com outros semelhantes;
-- **Number of agent types:** número de classes dos indivíduos do modelo, classe seria o grupo com o qual o indivíduo mais se identifica.
+## Academic Context
 
+**Course**: Experimental Computing (Computação Experimental)  
+**Institution**: University of Brasília (UnB)  
+**Type**: Academic Project
 
-### Variáveis Dependentes
+## Contact
 
-- **Percentage of happy agents:** porcentagem de agentes felizes naquele passo, calculado pelo número de agentes que estão felizes com a sua vizinhança dividido pelo número total de agentes; 
-- **Number of steps until 100\% happy agents:** número de passos que foram executados até se conseguir que todos os agentes estivessem contentes com suas respectivas vizinhanças. 
+**Tatiana Pereira**  
+Email: fpereira.tatiana@gmail.com  
+LinkedIn: [linkedin.com/in/tatiana-franco-pereira](https://linkedin.com/in/tatiana-franco-pereira)  
+Lattes CV: [lattes.cnpq.br/6503681647703666](http://lattes.cnpq.br/6503681647703666)
+
+---
+
+<p align="center">
+  <i>Developed as part of Computer Science undergraduate program at UnB</i>
+</p>
